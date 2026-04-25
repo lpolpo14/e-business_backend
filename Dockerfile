@@ -17,7 +17,8 @@ RUN pip install --upgrade pip && pip install "poetry==$POETRY_VERSION"
 COPY pyproject.toml poetry.lock README.md ./
 COPY d3fender ./d3fender
 
-RUN poetry install --only main
+RUN poetry install --only main --no-root
 
-ENTRYPOINT ["d3fender"]
-CMD ["--help"]
+EXPOSE 8000
+
+CMD ["sh", "-c", "uvicorn d3fender.api.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
