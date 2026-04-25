@@ -9,7 +9,9 @@ readme = "README.md"
 requires-python = ">=3.10, <4"
 dependencies = [
     "click (>=8.3.1,<9.0.0)",
-    "sentence-transformers (>=5.2.3,<6.0.0)"
+    "sentence-transformers (>=5.2.3,<6.0.0)",
+    "fastapi (>=0.136.1,<0.137.0)",
+    "uvicorn (>=0.46.0,<0.47.0)"
 ]
 
 [build-system]
