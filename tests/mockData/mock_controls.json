@@ -1,0 +1,100 @@
+{
+  "controls": [
+    {
+      "id": "net.firewall",
+      "title": "Firewall",
+      "category": "network",
+      "aliases": [
+        "packet filter",
+        "threat prevention system",
+        "fire wall",
+        "firewall"
+      ],
+      "covers_capabilities": [
+        "net.network_traffic_filtering"
+      ],
+      "default": false
+    },
+    {
+    "id": "access.identity_access_management",
+    "title": "Identity and Access Management",
+    "category": "access_control",
+    "aliases": [
+    "iam",
+    "identity management",
+    "access management",
+    "identity and access management"
+    ],
+    "covers_capabilities": [
+    "auth.multi_factor_authentication",
+    "cred.credential_rotation",
+    "cred.revocation",
+    "proc.password_policy"
+    ],
+    "default": false
+  },
+    {
+    "id": "detect.security_monitoring",
+    "title": "Security Monitoring and Logging",
+      "category": "detection",
+    "aliases": [
+      "security monitoring",
+      "logging and monitoring",
+      "siem",
+      "security analytics"
+    ],
+    "covers_capabilities": [
+    "detect.user_behavior_analysis"
+    ],
+    "default": false
+    },
+    {
+    "id": "identity.session_credential_management",
+    "title": "Session and Credential Management",
+    "category": "identity",
+    "aliases": [
+    "session management",
+    "credential management",
+    "token management"
+    ],
+    "covers_capabilities": [
+    "cred.revocation",
+    "cred.token_binding",
+    "cred.credential_rotation"
+    ],
+    "default": false
+  },
+    {
+      "id": "detect.antivirus",
+      "title": "Antivirus",
+      "category": "endpoint_security",
+      "aliases": [
+        "antivirus",
+        "av",
+        "endpoint antivirus",
+        "malware scanner"
+      ],
+      "covers_capabilities": [
+        "file.file_hashing",
+        "file.file_content_analysis"
+      ],
+      "default": false
+    },
+    {
+      "id": "net.vpn",
+      "title": "Virtual Private Network (VPN)",
+      "category": "network_security",
+      "aliases": [
+        "vpn",
+        "virtual private network",
+        "secure tunnel",
+        "remote access vpn"
+      ],
+      "covers_capabilities": [
+        "msg.message_encryption",
+        "net.encrypted_tunnels"
+      ],
+      "default": false
+    }
+  ]
+}

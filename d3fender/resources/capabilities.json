@@ -1,0 +1,407 @@
+
+{
+  "capabilities": [
+    {
+      "id": "cred.token_binding",
+      "title": "Token Binding",
+      "category": "credentials",
+      "aliases": [
+        "token binding",
+        "token bind"
+      ],
+      "default": false
+    },
+    {
+    "id": "net.network_traffic_filtering",
+    "title": "Network Traffic Filtering",
+    "category": "network_security",
+    "aliases": [
+      "network traffic filtering",
+      "traffic filtering"],
+    "default": false
+   },
+    {
+      "id": "auth.token_based_authentication",
+      "title": "Token-Based Authentication",
+      "category": "authentication",
+      "aliases": [
+        "authentication with tokens",
+        "token-authentication",
+        "token based authentication"
+      ],
+      "default": false
+    },
+    {
+    "id": "auth.password_authentication",
+     "title": "Password-Based Authentication",
+     "category": "authentication",
+    "aliases": [
+      "password authentication",
+      "password-based authentication",
+      "password login",
+      "login with password",
+      "username and password",
+      "sign in with password",
+      "password based login"
+    ],
+    "default": false
+  },
+    {
+      "id": "ctx.involves_software_engineering",
+      "title": "Software Engineering Context",
+      "category": "context",
+      "aliases": [
+        "involves_software_engineering",
+        "software engineering",
+        "in-house development",
+        "custom software development",
+        "sdlc",
+        "develop software",
+        "software engineer"
+      ],
+      "default": false
+    },
+    {
+    "id": "ctx.public_web_application",
+    "title": "Public Web Application",
+    "category": "context",
+      "aliases": [
+    "internet facing",
+    "internet-facing services",
+    "publicly exposed services",
+    "public web application",
+        "web application",
+    "external-facing application",
+    "externally accessible service"
+    ],
+    "default": false
+    },
+    {
+    "id": "ctx.remote_workforce",
+    "title": "Remote Workforce Context",
+    "category": "context",
+    "aliases": [
+      "remote workforce",
+      "remote employees",
+      "work from home",
+      "distributed workforce",
+      "hybrid work",
+      "remote access users"
+    ],
+    "default": true
+    },
+    {
+      "id": "ctx.sensitive_data",
+      "title": "Sensitive Data Context,",
+      "category": "context",
+      "aliases": [
+        "handle sensitive data",
+        "personal data",
+        "gdpr",
+        "confidential data",
+        "sensitive data"
+      ],
+      "default": true
+    },
+    {
+      "id": "proc.password_policy",
+      "title": "Password Policy",
+      "category": "processes_and_policies",
+      "aliases": [
+        "password_policy",
+        "password policy",
+        "password rules",
+        "password requirements",
+        "password complexity policy"
+      ],
+      "default": false
+    },
+    {
+      "id": "cred.credential_rotation",
+      "title": "Credential Rotation",
+      "category": "credentials",
+      "aliases": [
+        "credential_rotation",
+        "credential rotation",
+        "password rotation",
+        "rotate credentials",
+        "periodic password changes"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.aslr",
+      "title": "Address Space Layout Randomization (ASLR)",
+      "category": "software_engineering",
+      "aliases": [
+        "address_space_layout_randomization(aslr)",
+        "aslr",
+        "address space layout randomization"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.stack_frame_canary_validation",
+      "title": "Stack Frame Canary Validation",
+      "category": "software_engineering",
+      "aliases": [
+        "stack_frame_canary_validation",
+        "stack canary",
+        "stack canaries",
+        "stack protector",
+        "canary validation"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.dead_code_elimination",
+      "title": "Dead Code Elimination",
+      "category": "software_engineering",
+      "aliases": [
+        "dead_code_elimination",
+        "dead-code elimination",
+        "remove dead code",
+        "dead code removal"
+      ],
+      "default": false
+    },
+    {
+    "id": "sw.input_validation",
+    "title": "Input Validation",
+    "category": "software_engineering",
+    "aliases": [
+      "input validation",
+      "sanitization",
+      "sanitize input",
+      "input validation",
+      "clean user input",
+      "validate user input"],
+    "default": false
+    },
+    {
+      "id": "sw.code_analysis",
+      "title": "Code Analysis",
+      "category": "software_engineering",
+      "aliases": [
+        "code_analysis",
+        "static analysis",
+        "static code analysis",
+        "sast",
+        "code scanning",
+        "secure code review tooling"
+      ],
+      "default": false
+    },
+    {
+    "id": "auth.multi_factor_authentication",
+    "title": "Multi-Factor Authentication",
+    "category": "authentication",
+    "aliases": ["mfa",
+      "2fa",
+      "two factor authentication",
+      "multi factor authentication"],
+    "default": false
+    },
+    {
+    "id": "cred.revocation",
+    "title": "Credential Revocation",
+    "category": "credentials",
+    "aliases": ["token revocation", "revoke sessions", "credential invalidation"],
+    "default": false
+    },
+    {
+    "id": "dns.allowlisting",
+    "title": "DNS Allowlisting",
+    "category": "network_security",
+    "aliases": [
+      "dns filtering",
+      "dns allowlisting"],
+    "default": false
+    },
+    {
+      "id": "dns.denylisting",
+      "title": "DNS Denylisting",
+      "category": "network_security",
+      "aliases": [
+        "dns denylisting",
+        "dns blacklisting",
+        "block malicious domains",
+        "dns blocklist"
+      ],
+      "default": false
+    },
+    {
+      "id": "dns.traffic_analysis",
+      "title": "DNS Traffic Analysis",
+      "category": "network_security",
+      "aliases": [
+        "dns analysis",
+        "dns network analysis",
+        "dns record analysis"
+      ],
+      "default": false
+    },
+    {
+    "id": "detect.user_behavior_analysis",
+    "title": "User Behavior Analysis",
+    "category": "detection",
+    "aliases": [
+      "ueba",
+      "user behavior monitoring"
+    ],
+    "default": false
+    },
+        {
+      "id": "file.file_hashing",
+      "title": "File Hashing",
+      "category": "file_security",
+      "aliases": [
+        "file hashing",
+        "hash comparison",
+        "signature-based file detection",
+        "malware hash matching"
+      ],
+      "default": false
+    },
+    {
+      "id": "file.file_content_analysis",
+      "title": "File Content Analysis",
+      "category": "file_security",
+      "aliases": [
+        "file content analysis",
+        "file scanning",
+        "static file analysis",
+        "content signature analysis"
+      ],
+      "default": false
+    },
+    {
+      "id": "deceive.decoy_environment",
+      "title": "Decoy Environment",
+      "category": "deception",
+      "aliases": [
+        "decoy environment",
+        "honeypot",
+        "honeynet",
+        "deception environment"
+      ],
+      "default": false
+    },
+    {
+      "id": "detect.remote_terminal",
+      "title": "Remote Terminal Session Detection",
+      "category": "detection",
+      "aliases": [
+        "session inspection",
+        "session detection",
+        "remote session detection",
+        "remote session inspection",
+        "remote service session hijacking detection"
+      ],
+      "default": false
+    },
+    {
+      "id": "msg.message_encryption",
+      "title": "Message Encryption",
+      "category": "communications_security",
+      "aliases": [
+        "message encryption",
+        "encrypted messages",
+        "secure messaging",
+        "s/mime",
+        "pgp"
+      ],
+      "default": false
+    },
+    {
+      "id": "net.encrypted_tunnels",
+      "title": "Encrypted Tunnels",
+      "category": "network_security",
+      "aliases": [
+        "encrypted tunnels",
+        "vpn tunnel",
+        "secure tunnel",
+        "tunneling encryption"
+      ],
+      "default": false
+    },
+    {
+      "id": "cred.scrubbing",
+      "title": "Credential Scrubbing",
+      "category": "credentials",
+      "aliases": [
+        "api keys scrubbing",
+        "credential scrubbing",
+        "secret scrubbing",
+        "secret removal"
+      ],
+      "default": false
+    },
+    {
+      "id": "db.query_string_analysis",
+      "title": "Database Query String Analysis",
+      "category": "database_security",
+      "aliases": [
+        "database query monitoring",
+        "query string analysis",
+        "query string inspection",
+        "query analysis",
+        "db query analysis",
+        "malicious query detection"
+      ],
+      "default": false
+    },
+    {
+      "id": "application.process_isolation",
+      "title": "Application-based Process Isolation",
+      "category": "application_security",
+      "aliases": [
+        "application process isolation",
+        "application-based process isolation",
+        "application based process isolation",
+        "sandbox",
+        "remote browser isolation",
+        "browser-based process isolation"
+      ],
+      "default": false
+    },
+    {
+      "id": "file.local_permissions",
+      "title": "Local File Permissions",
+      "category": "file_security",
+      "aliases": [
+        "file access rights",
+        "file access control",
+        "file authorizations",
+        "file ownership",
+        "chmod",
+        "read/write/execute"
+      ],
+      "default": false
+    },
+    {
+      "id": "file.executable_allowlisting",
+      "title": "Executable Allowlisting",
+      "category": "file_security",
+      "aliases": [
+        "file signature authentication",
+        "executable blacklisting",
+        "digital signature authentication",
+        "digital signature verification"
+      ],
+      "default": true
+    },
+    {
+      "id": "disk.encryption",
+      "title": "Disk Encryption",
+      "category": "file_security",
+      "aliases": [
+        "encrypt disk",
+        "hard drive encryption",
+        "file system encryption",
+        "encrypt hard drive"
+      ],
+      "default": false
+    }
+  ]
+}

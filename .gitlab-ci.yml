@@ -1,0 +1,42 @@
+stages:
+  - test
+  - build
+
+default:
+  image: python:3.12-slim
+
+variables:
+  POETRY_VERSION: "2.2.1"
+  POETRY_VIRTUALENVS_IN_PROJECT: "true"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+before_script:
+  - pip install --upgrade pip
+  - pip install "poetry==$POETRY_VERSION"
+  - poetry install --no-interaction
+
+test:
+  stage: test
+  script:
+    - poetry run pytest
+    - poetry run interrogate -f 80 -v
+  artifacts:
+    when: on_failure
+    expire_in: 2 weeks
+    paths:
+      - .pytest_cache/
+
+build:
+  stage: build
+  script:
+    # We generate SBOM as well
+    - poetry run cyclonedx-py env -o sbom/sbom.json --of json
+    - poetry build
+  artifacts:
+    paths:
+      - dist/
+      - sbom/sbom.json
+    expire_in: 1 week
+  needs:
+    - test
+

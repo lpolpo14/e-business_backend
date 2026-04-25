@@ -1,0 +1,2 @@
+Poetry Tutorial and CheatSheet- https://realpython.com/dependency-management-python-poetry/
+Practical Poetry + GitLab Usage Examples - https://docs.mpcdf.mpg.de/doc/data/gitlab/devop-tutorial.html

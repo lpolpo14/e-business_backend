@@ -1,0 +1,233 @@
+{
+    "type": "bundle",
+    "id": "bundle--ffe1a478-536b-4e91-91b0-0ca0094a97d5",
+    "objects": [       
+        {
+            "type": "x-mitre-tactic",
+            "spec_version": "2.1",
+            "id": "x-mitre-tactic--2558fd61-8c75-4730-94c4-11926db2a263",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/tactics/TA0006",
+                    "external_id": "TA0006"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2025-04-25T14:45:32.408Z",
+            "name": "Credential Access",
+            "description": "The adversary is trying to steal account names and passwords.\n\nCredential Access consists of techniques for stealing credentials like account names and passwords. Techniques used to get credentials include keylogging or credential dumping. Using legitimate credentials can give adversaries access to systems, make them harder to detect, and provide the opportunity to create more accounts to help achieve their goals.",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "3.2.0",
+            "x_mitre_shortname": "credential-access"
+        },
+            {
+            "type": "x-mitre-tactic",
+            "spec_version": "2.1",
+            "id": "x-mitre-tactic--5e29b093-294e-49e9-a803-dab3d73b77dd",
+            "created": "2018-10-17T00:14:20.652Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/tactics/TA0004",
+                    "external_id": "TA0004"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2025-04-25T14:45:33.853Z",
+            "name": "Privilege Escalation",
+            "description": "The adversary is trying to gain higher-level permissions.\n\nPrivilege Escalation consists of techniques that adversaries use to gain higher-level permissions on a system or network. Adversaries can often enter and explore a network with unprivileged access but require elevated permissions to follow through on their objectives. Common approaches are to take advantage of system weaknesses, misconfigurations, and vulnerabilities. Examples of elevated access include: \n\n* SYSTEM/root level\n* local administrator\n* user account with admin-like access \n* user accounts with access to specific system or perform specific function\n\nThese techniques often overlap with Persistence techniques, as OS features that let an adversary persist can execute in an elevated context.  ",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_deprecated": false,
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_version": "1.0",
+            "x_mitre_attack_spec_version": "3.2.0",
+            "x_mitre_shortname": "privilege-escalation"
+        },
+         {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--fc742192-19e3-466c-9eb5-964a97b29490",
+            "created": "2020-03-16T15:23:30.896Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "revoked": false,
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1574/004",
+                    "external_id": "T1574.004"
+                },
+                {
+                    "source_name": "MalwareUnicorn macOS Dylib Injection MachO",
+                    "description": "Amanda Rousseau. (2020, April 4). MacOS Dylib Injection Workshop. Retrieved March 29, 2021.",
+                    "url": "https://malwareunicorn.org/workshops/macos_dylib_injection.html#5"
+                },
+                {
+                    "source_name": "Apple Developer Doco Archive Run-Path",
+                    "description": "Apple Inc.. (2012, July 7). Run-Path Dependent Libraries. Retrieved March 31, 2021.",
+                    "url": "https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/RunpathDependentLibraries.html"
+                },
+                {
+                    "source_name": "Wardle Dylib Hijacking OSX 2015",
+                    "description": "Patrick Wardle. (2015, March 1). Dylib Hijacking on OS X. Retrieved March 29, 2021.",
+                    "url": "https://www.virusbulletin.com/uploads/pdf/magazine/2015/vb201503-dylib-hijacking.pdf"
+                },
+                {
+                    "source_name": "Writing Bad Malware for OSX",
+                    "description": "Patrick Wardle. (2015). Writing Bad @$$ Malware for OS X. Retrieved July 10, 2017.",
+                    "url": "https://www.blackhat.com/docs/us-15/materials/us-15-Wardle-Writing-Bad-A-Malware-For-OS-X.pdf"
+                },
+                {
+                    "source_name": "Wardle Dylib Hijack Vulnerable Apps",
+                    "description": "Patrick Wardle. (2019, July 2). Getting Root with Benign AppStore Apps. Retrieved March 31, 2021.",
+                    "url": "https://objective-see.com/blog/blog_0x46.html"
+                },
+                {
+                    "source_name": "wardle artofmalware volume1",
+                    "description": "Patrick Wardle. (2020, August 5). The Art of Mac Malware Volume 0x1: Analysis. Retrieved November 17, 2024.",
+                    "url": "https://taomm.org/vol1/read.html"
+                },
+                {
+                    "source_name": "Github EmpireProject HijackScanner",
+                    "description": "Wardle, P., Ross, C. (2017, September 21). Empire Project Dylib Hijack Vulnerability Scanner. Retrieved April 1, 2021.",
+                    "url": "https://github.com/EmpireProject/Empire/blob/master/lib/modules/python/situational_awareness/host/osx/HijackScanner.py"
+                },
+                {
+                    "source_name": "Github EmpireProject CreateHijacker Dylib",
+                    "description": "Wardle, P., Ross, C. (2018, April 8). EmpireProject Create Dylib Hijacker. Retrieved April 1, 2021.",
+                    "url": "https://github.com/EmpireProject/Empire/blob/08cbd274bef78243d7a8ed6443b8364acd1fc48b/lib/modules/python/persistence/osx/CreateHijacker.py"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2025-10-24T17:49:39.243Z",
+            "name": "Dylib Hijacking",
+            "description": "Adversaries may execute their own payloads by placing a malicious dynamic library (dylib) with an expected name in a path a victim application searches at runtime. The dynamic loader will try to find the dylibs based on the sequential order of the search paths. Paths to dylibs may be prefixed with <code>@rpath</code>, which allows developers to use relative paths to specify an array of search paths used at runtime based on the location of the executable.  Additionally, if weak linking is used, such as the <code>LC_LOAD_WEAK_DYLIB</code> function, an application will still execute even if an expected dylib is not present. Weak linking enables developers to run an application on multiple macOS versions as new APIs are added.\n\nAdversaries may gain execution by inserting malicious dylibs with the name of the missing dylib in the identified path.(Citation: Wardle Dylib Hijack Vulnerable Apps)(Citation: Wardle Dylib Hijacking OSX 2015)(Citation: Github EmpireProject HijackScanner)(Citation: Github EmpireProject CreateHijacker Dylib) Dylibs are loaded into an application's address space allowing the malicious dylib to inherit the application's privilege level and resources. Based on the application, this could result in privilege escalation and uninhibited network access. This method may also evade detection from security products since the execution is masked under a legitimate process.(Citation: Writing Bad Malware for OSX)(Citation: wardle artofmalware volume1)(Citation: MalwareUnicorn macOS Dylib Injection MachO)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "privilege-escalation"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "defense-evasion"
+                }
+            ],
+            "x_mitre_attack_spec_version": "3.2.0",
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": "true",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "macOS"
+            ],
+            "x_mitre_version": "2.1"
+        },
+        {
+            "type": "attack-pattern",
+            "spec_version": "2.1",
+            "id": "attack-pattern--ffeb0780-356e-4261-b036-cfb6bd234335",
+            "created": "2020-06-24T22:30:55.843Z",
+            "created_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "external_references": [
+                {
+                    "source_name": "mitre-attack",
+                    "url": "https://attack.mitre.org/techniques/T1574/012",
+                    "external_id": "T1574.012"
+                },
+                {
+                    "source_name": "Microsoft Profiling Mar 2017",
+                    "description": "Microsoft. (2017, March 30). Profiling Overview. Retrieved June 24, 2020.",
+                    "url": "https://docs.microsoft.com/en-us/dotnet/framework/unmanaged-api/profiling/profiling-overview"
+                },
+                {
+                    "source_name": "Microsoft COR_PROFILER Feb 2013",
+                    "description": "Microsoft. (2013, February 4). Registry-Free Profiler Startup and Attach. Retrieved June 24, 2020.",
+                    "url": "https://docs.microsoft.com/en-us/previous-versions/dotnet/netframework-4.0/ee471451(v=vs.100)"
+                },
+                {
+                    "source_name": "RedCanary Mockingbird May 2020",
+                    "description": "Lambert, T. (2020, May 7). Introducing Blue Mockingbird. Retrieved May 26, 2020.",
+                    "url": "https://redcanary.com/blog/blue-mockingbird-cryptominer/"
+                },
+                {
+                    "source_name": "Red Canary COR_PROFILER May 2020",
+                    "description": "Brown, J. (2020, May 7). Detecting COR_PROFILER manipulation for persistence. Retrieved June 24, 2020.",
+                    "url": "https://redcanary.com/blog/cor_profiler-for-persistence/"
+                },
+                {
+                    "source_name": "Almond COR_PROFILER Apr 2019",
+                    "description": "Almond. (2019, April 30). UAC bypass via elevated .NET applications. Retrieved June 24, 2020.",
+                    "url": "https://offsec.almond.consulting/UAC-bypass-dotnet.html"
+                },
+                {
+                    "source_name": "GitHub OmerYa Invisi-Shell",
+                    "description": "Yair, O. (2019, August 19). Invisi-Shell. Retrieved June 24, 2020.",
+                    "url": "https://github.com/OmerYa/Invisi-Shell"
+                },
+                {
+                    "source_name": "subTee .NET Profilers May 2017",
+                    "description": "Smith, C. (2017, May 18). Subvert CLR Process Listing With .NET Profilers. Retrieved June 24, 2020.",
+                    "url": "https://web.archive.org/web/20170720041203/http://subt0x10.blogspot.com/2017/05/subvert-clr-process-listing-with-net.html"
+                }
+            ],
+            "object_marking_refs": [
+                "marking-definition--fa42a846-8d90-4e51-bc29-71d5b4802168"
+            ],
+            "modified": "2025-10-24T17:49:40.510Z",
+            "name": "COR_PROFILER",
+            "description": "Adversaries may leverage the COR_PROFILER environment variable to hijack the execution flow of programs that load the .NET CLR. The COR_PROFILER is a .NET Framework feature which allows developers to specify an unmanaged (or external of .NET) profiling DLL to be loaded into each .NET process that loads the Common Language Runtime (CLR). These profilers are designed to monitor, troubleshoot, and debug managed code executed by the .NET CLR.(Citation: Microsoft Profiling Mar 2017)(Citation: Microsoft COR_PROFILER Feb 2013)\n\nThe COR_PROFILER environment variable can be set at various scopes (system, user, or process) resulting in different levels of influence. System and user-wide environment variable scopes are specified in the Registry, where a [Component Object Model](https://attack.mitre.org/techniques/T1559/001) (COM) object can be registered as a profiler DLL. A process scope COR_PROFILER can also be created in-memory without modifying the Registry. Starting with .NET Framework 4, the profiling DLL does not need to be registered as long as the location of the DLL is specified in the COR_PROFILER_PATH environment variable.(Citation: Microsoft COR_PROFILER Feb 2013)\n\nAdversaries may abuse COR_PROFILER to establish persistence that executes a malicious DLL in the context of all .NET processes every time the CLR is invoked. The COR_PROFILER can also be used to elevate privileges (ex: [Bypass User Account Control](https://attack.mitre.org/techniques/T1548/002)) if the victim .NET process executes at a higher permission level, as well as to hook and [Impair Defenses](https://attack.mitre.org/techniques/T1562) provided by .NET processes.(Citation: RedCanary Mockingbird May 2020)(Citation: Red Canary COR_PROFILER May 2020)(Citation: Almond COR_PROFILER Apr 2019)(Citation: GitHub OmerYa Invisi-Shell)(Citation: subTee .NET Profilers May 2017)",
+            "kill_chain_phases": [
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "persistence"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "privilege-escalation"
+                },
+                {
+                    "kill_chain_name": "mitre-attack",
+                    "phase_name": "defense-evasion"
+                }
+            ],
+            "x_mitre_attack_spec_version": "3.2.0",
+            "x_mitre_contributors": [
+                "Jesse Brown, Red Canary"
+            ],
+            "x_mitre_deprecated": false,
+            "x_mitre_detection": "",
+            "x_mitre_domains": [
+                "enterprise-attack"
+            ],
+            "x_mitre_is_subtechnique": "true",
+            "x_mitre_modified_by_ref": "identity--c78cb6e5-0c4b-4611-8297-d1b8b55e40b5",
+            "x_mitre_platforms": [
+                "Windows"
+            ],
+            "x_mitre_version": "1.1"
+        }
+    ]
+}

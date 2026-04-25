@@ -1,0 +1,28 @@
+[project]
+name = "d3fender"
+version = "0.1.0"
+description = "A security assessment and gap detection tool which uses the MITRE ATT&CK and D3FEND Frameworks."
+authors = [
+    {name = "Michael"}
+]
+readme = "README.md"
+requires-python = ">=3.10, <4"
+dependencies = [
+    "click (>=8.3.1,<9.0.0)",
+    "sentence-transformers (>=5.2.3,<6.0.0)"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "cyclonedx-bom (>=7.2.1,<8.0.0)",
+    "interrogate (>=1.7.0,<2.0.0)",
+    "pytest (>=9.0.2,<10.0.0)",
+    "psutil (>=7.2.2,<8.0.0)"
+]
+
+[tool.poetry.scripts]
+d3fender = "d3fender.cli:cli"

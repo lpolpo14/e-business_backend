@@ -1,0 +1,44 @@
+{
+    "metadata": {
+        "organization": "Mike Corp",
+        "assessor": "Michael"
+    },
+    "threat_context":{
+        "involves_software_engineering": true
+    },
+    "defensive_controls":{
+		"authentication": {
+			"token_based_authentication": true,
+			"password_authentication": true,
+			"multi-factor_authentication": false,
+			"certificate_based_authentication": false
+			},
+		"credential_hardening": {
+			"certificate_pinning": false,
+			"credential_rotation": true,
+			"token_binding": false
+			}
+    },
+    "processes_and_policies":{
+    	"password_policy": true,
+        "access_modeling": false,
+		"network_traffic_policy_mapping": true,
+		"keeps_software_inventory": true,
+		"keeps_data_inventory": false,
+		"keeps_network_node_inventory": false,
+		"keeps_hardware_component_inventory": true,
+		"constant_user_training": true
+    },
+    "security_assessments": {
+		"operational_risk_assessment": false,
+		"system_vulnerability_assessment": false,
+		"network_vulnerability_assessment": false,
+		"asset_vulnerability_enumeration": true
+    },
+	"application_hardening": {
+      	"dead_code_elimination": false,
+      	"code_analysis": true,
+      	"address_space_layout_randomization(aslr)": false,
+      	"stack_frame_canary_validation" : false
+    }
+}

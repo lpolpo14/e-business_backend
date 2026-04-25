@@ -1,0 +1,113 @@
+
+{
+  "capabilities": [
+    {
+      "id": "cred.token_binding",
+      "title": "Token Binding",
+      "category": "credentials",
+      "aliases": [
+        "token binding",
+        "token bind"
+      ],
+      "default": false
+    },
+    {
+      "id": "auth.token_based_authentication",
+      "title": "Token-Based Authentication",
+      "category": "authentication",
+      "aliases": [
+        "authentication with tokens",
+        "token-authentication"
+      ],
+      "default": false
+    },
+    {
+      "id": "ctx.involves_software_engineering",
+      "title": "Software Engineering Context",
+      "category": "context",
+      "aliases": [
+        "involves_software_engineering",
+        "software engineering",
+        "in-house development",
+        "custom software development",
+        "sdlc"
+      ],
+      "default": false
+    },
+    {
+      "id": "proc.password_policy",
+      "title": "Password Policy",
+      "category": "processes_and_policies",
+      "aliases": [
+        "password_policy",
+        "password policy",
+        "password rules",
+        "password requirements",
+        "password complexity policy"
+      ],
+      "default": false
+    },
+    {
+      "id": "cred.credential_rotation",
+      "title": "Credential Rotation",
+      "category": "credentials",
+      "aliases": [
+        "credential_rotation",
+        "credential rotation",
+        "password rotation",
+        "rotate credentials",
+        "periodic password changes"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.aslr",
+      "title": "Address Space Layout Randomization (ASLR)",
+      "category": "software_engineering",
+      "aliases": [
+        "address_space_layout_randomization(aslr)",
+        "aslr",
+        "address space layout randomization"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.stack_frame_canary_validation",
+      "title": "Stack Frame Canary Validation",
+      "category": "software_engineering",
+      "aliases": [
+        "stack_frame_canary_validation",
+        "stack canary",
+        "stack canaries",
+        "stack protector",
+        "canary validation"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.dead_code_elimination",
+      "title": "Dead Code Elimination",
+      "category": "software_engineering",
+      "aliases": [
+        "dead_code_elimination",
+        "dead-code elimination",
+        "remove dead code",
+        "dead code removal"
+      ],
+      "default": false
+    },
+    {
+      "id": "sw.code_analysis",
+      "title": "Code Analysis",
+      "category": "software_engineering",
+      "aliases": [
+        "code_analysis",
+        "static analysis",
+        "sast",
+        "code scanning",
+        "secure code review tooling"
+      ],
+      "default": false
+    }
+  ]
+}
