@@ -39,9 +39,6 @@ def serialize_finding(obj: Any) -> Any:
     if is_dataclass(obj):
         return asdict(obj)
 
-    if hasattr(obj, "model_dump"):
-        return obj.model_dump()
-
     if hasattr(obj, "dict"):
         return obj.dict()
 
