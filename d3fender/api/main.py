@@ -17,7 +17,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8080",
-        "https://your-spring-app.up.railway.app",
+        "https://d3fender.up.railway.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
