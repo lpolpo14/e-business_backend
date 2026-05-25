@@ -11,8 +11,9 @@ from d3fender.rules.ruleEvaluator import evaluateRules as evaluate
 from d3fender.input.inputParser import (retrieveInputJsonDataFromString as inputJson,
                                         normalize_json_input_to_capabilities as normalizeJsonInput,
                                         normalize_plaintext_input_to_capabilities as normalizePlaintextInput)
+from d3fender.IO.Input import build_questionnaire_input
 
-def runAssessment(input_format: str, content: str) -> list:
+def runAssessment(input_format: str, content) -> list:
     """
     The main assessment method. Handles the entire logic of the assessment and of the application
     in a sequential logic.
@@ -58,7 +59,7 @@ def get_canonical_input(input_format: str,
         sentenceTransformer = DefensesSentenceTransformer(capabilities_registry, controls_registry)
         return normalizePlaintextInput(content, capabilities_registry, controls_registry, sentenceTransformer)
 
-    if input_format == "interactive":
-        return interactive_input(capabilities_registry, controls_registry)
+    if input_format == "questionnaire":
+        return build_questionnaire_input(content, capabilities_registry, controls_registry)
 
     raise ValueError(f"Unsupported file format: {input_format}")

@@ -71,3 +71,35 @@ def interactive_input(capabilities_registry: Dict[str, Any],
             "threat_context": {},
             "capabilities": capabilities,
             "controls": controls,}
+
+def build_questionnaire_input(
+        answers: Dict[str, bool],
+        capabilities_registry: Dict[str, Any],
+        controls_registry: Dict[str, Any],
+) -> Dict[str, Any]:
+
+    capabilities = get_capabilities_defaults_from_registry(capabilities_registry)
+    controls = get_controls_defaults_from_registry(controls_registry)
+
+    for capability in capabilities_registry.get("capabilities", []):
+        capability_id = capability["id"]
+
+        if capability_id in answers:
+            capabilities[capability_id] = answers[capability_id]
+
+    for control in controls_registry.get("controls", []):
+        control_id = control["id"]
+
+        if control_id in answers:
+            controls[control_id] = answers[control_id]
+
+    apply_capabilities_from_controls(controls, capabilities, controls_registry)
+
+    return {
+        "metadata": {
+            "input_format": "questionnaire"
+        },
+        "threat_context": {},
+        "capabilities": capabilities,
+        "controls": controls,
+    }
