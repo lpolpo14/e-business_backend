@@ -9,7 +9,8 @@
         "token binding",
         "token bind"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Does your organization use token binding?"
     },
     {
     "id": "net.network_traffic_filtering",
@@ -18,7 +19,8 @@
     "aliases": [
       "network traffic filtering",
       "traffic filtering"],
-    "default": false
+    "default": false,
+      "interactive_text": "Is network traffic filtering employed?"
    },
     {
       "id": "auth.token_based_authentication",
@@ -29,7 +31,8 @@
         "token-authentication",
         "token based authentication"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you use tokens to authenticate your users or employees? (Token-Based Authentication)"
     },
     {
     "id": "auth.password_authentication",
@@ -44,7 +47,8 @@
       "sign in with password",
       "password based login"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you use passwords as a form of credential?"
   },
     {
       "id": "ctx.involves_software_engineering",
@@ -59,7 +63,8 @@
         "develop software",
         "software engineer"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Does organization activities involve software engineering?"
     },
     {
     "id": "ctx.public_web_application",
@@ -74,7 +79,8 @@
     "external-facing application",
     "externally accessible service"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you provide a public and internet facing web application?"
     },
     {
     "id": "ctx.remote_workforce",
@@ -88,7 +94,8 @@
       "hybrid work",
       "remote access users"
     ],
-    "default": true
+    "default": true,
+      "interactive_text": "Do your employees work from home? (Remote Workforce)"
     },
     {
       "id": "ctx.sensitive_data",
@@ -101,7 +108,8 @@
         "confidential data",
         "sensitive data"
       ],
-      "default": true
+      "default": true,
+      "interactive_text": "Does your organization handle sensitive or personal data?"
     },
     {
       "id": "proc.password_policy",
@@ -114,7 +122,8 @@
         "password requirements",
         "password complexity policy"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Is a password policy used?"
     },
     {
       "id": "cred.credential_rotation",
@@ -127,7 +136,8 @@
         "rotate credentials",
         "periodic password changes"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Does your organization perform periodic password changes? (Credential Rotation)"
     },
     {
       "id": "sw.aslr",
@@ -138,7 +148,8 @@
         "aslr",
         "address space layout randomization"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you use address space layout randomization?"
     },
     {
       "id": "sw.stack_frame_canary_validation",
@@ -151,7 +162,8 @@
         "stack protector",
         "canary validation"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you use stack frame canary validation?"
     },
     {
       "id": "sw.dead_code_elimination",
@@ -163,7 +175,8 @@
         "remove dead code",
         "dead code removal"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Does your company perform dead code elimination?"
     },
     {
     "id": "sw.input_validation",
@@ -176,7 +189,8 @@
       "input validation",
       "clean user input",
       "validate user input"],
-    "default": false
+    "default": false,
+      "interactive_text": "Is user input validated and sanitized?"
     },
     {
       "id": "sw.code_analysis",
@@ -190,7 +204,8 @@
         "code scanning",
         "secure code review tooling"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Is your code analyzed?"
     },
     {
     "id": "auth.multi_factor_authentication",
@@ -200,14 +215,16 @@
       "2fa",
       "two factor authentication",
       "multi factor authentication"],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you provide multi-factor authentication?"
     },
     {
     "id": "cred.revocation",
     "title": "Credential Revocation",
     "category": "credentials",
     "aliases": ["token revocation", "revoke sessions", "credential invalidation"],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you revoke credentials and sessions? (credential revocation/invalidation)"
     },
     {
     "id": "dns.allowlisting",
@@ -216,7 +233,8 @@
     "aliases": [
       "dns filtering",
       "dns allowlisting"],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you employ a DNS allowlisting mechanism?"
     },
     {
       "id": "dns.denylisting",
@@ -228,7 +246,8 @@
         "block malicious domains",
         "dns blocklist"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you employ a DNS denylisting mechanism?"
     },
     {
       "id": "dns.traffic_analysis",
@@ -239,7 +258,8 @@
         "dns network analysis",
         "dns record analysis"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you analyze your DNS traffic?"
     },
     {
     "id": "detect.user_behavior_analysis",
@@ -249,7 +269,8 @@
       "ueba",
       "user behavior monitoring"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you perform user behaviour analysis?"
     },
         {
       "id": "file.file_hashing",
@@ -261,7 +282,8 @@
         "signature-based file detection",
         "malware hash matching"
       ],
-      "default": false
+      "default": false,
+          "interactive_text": "Do you use file hashing or signature-based file detection?"
     },
     {
       "id": "file.file_content_analysis",
@@ -273,7 +295,8 @@
         "static file analysis",
         "content signature analysis"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Are the downloaded files scanned and analyzed? (File Content Analysis)"
     },
     {
       "id": "deceive.decoy_environment",
@@ -285,7 +308,8 @@
         "honeynet",
         "deception environment"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Has your organization created a decoy environment to deceive potential attackers?"
     },
     {
       "id": "detect.remote_terminal",
@@ -298,7 +322,8 @@
         "remote session inspection",
         "remote service session hijacking detection"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you detect remote session and terminal connections?"
     },
     {
       "id": "msg.message_encryption",
@@ -311,7 +336,8 @@
         "s/mime",
         "pgp"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Are the messages sent throughout your organization encrypted?"
     },
     {
       "id": "net.encrypted_tunnels",
@@ -323,7 +349,8 @@
         "secure tunnel",
         "tunneling encryption"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you employ encrypted tunnels for network security?"
     },
     {
       "id": "cred.scrubbing",
@@ -335,7 +362,8 @@
         "secret scrubbing",
         "secret removal"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you perform credential scrubbing?"
     },
     {
       "id": "db.query_string_analysis",
@@ -349,7 +377,8 @@
         "db query analysis",
         "malicious query detection"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Is query string analysis performed in regard to your database?"
     },
     {
       "id": "application.process_isolation",
@@ -363,7 +392,8 @@
         "remote browser isolation",
         "browser-based process isolation"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Are application processes isolated? (Sandbox Isolation)"
     },
     {
       "id": "file.local_permissions",
@@ -377,7 +407,8 @@
         "chmod",
         "read/write/execute"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Are local permissions and file access rights properly set?"
     },
     {
       "id": "file.executable_allowlisting",
@@ -389,7 +420,8 @@
         "digital signature authentication",
         "digital signature verification"
       ],
-      "default": true
+      "default": true,
+      "interactive_text": "Do you perform executable allowlisting or blacklisting?"
     },
     {
       "id": "disk.encryption",
@@ -401,7 +433,8 @@
         "file system encryption",
         "encrypt hard drive"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you encrypt the main disks and hard drives?"
     }
   ]
 }

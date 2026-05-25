@@ -18,12 +18,28 @@ def printD3FENDTechniqueToOutput(technique : DefendTechnique) -> None:
         technique: a DefendTechnique Object
     """
     if technique is None:
-        click.echo(f"Technique was not found.")
+        click.secho("Technique was not found.", fg="red", bold=True)
         return
-    click.echo(f"ID of D3FEND Technique: {technique.defend_id}")
-    click.echo(f"Technique name: {technique.name}")
-    click.echo(f"Technique definition: {technique.definition}")
-    click.echo(f"The goal of the specific technique is to {technique.tactic[4:]}" )
+
+    click.echo(
+        click.style("ID of D3FEND Technique:", fg="white", bold=True)
+        + f" {technique.defend_id}"
+    )
+
+    click.echo(
+        click.style("Technique name:", fg="white", bold=True)
+        + f" {technique.name}"
+    )
+
+    click.echo(
+        click.style("Technique definition:", fg="white", bold=True)
+        + f" {technique.definition}"
+    )
+
+    click.echo(
+        click.style("The goal of the specific technique is to", fg="white", bold=True)
+        + f" {technique.tactic[4:]}"
+    )
 
 def printATTACKTechniqueToOutput(technique : AttackTechnique) -> None:
     """
@@ -32,12 +48,28 @@ def printATTACKTechniqueToOutput(technique : AttackTechnique) -> None:
         technique: a DefendTechnique Object
     """
     if technique is None:
-        click.echo(f"Technique was not found.")
+        click.secho("Technique was not found.", fg="red", bold=True)
         return
-    click.echo(f"ID of ATT&CK Technique: {technique.external_id}")
-    click.echo(f"Technique name: {technique.name}")
-    click.echo(f"Technique description: {technique.description}")
-    click.echo(f"This technique supports the Tactics '{technique.tactics}'" )
+
+    click.echo(
+        click.style("ID of ATT&CK Technique:", fg="white", bold=True)
+        + f" {technique.external_id}"
+    )
+
+    click.echo(
+        click.style("Technique name:", fg="white", bold=True)
+        + f" {technique.name}"
+    )
+
+    click.echo(
+        click.style("Technique description:", fg="white", bold=True)
+        + f" {technique.description}"
+    )
+
+    click.echo(
+        click.style("This technique supports the Tactics:", fg="white", bold=True)
+        + f" {technique.tactics}"
+    )
 
 def RulesToListDictionaries(rules : list) -> list:
     """
@@ -60,13 +92,13 @@ def RulesToListDictionaries(rules : list) -> list:
         listOfRules.append(currentRule)
     return listOfRules
 
-def list_to_concatenated_string(input : list) -> str:
+def list_to_concatenated_string(input_list : list) -> str:
     """
     Outputs a concatenated string from a list of elements, typically ATT&CK/D3FEND Techniques
     Every entry is concatenated using a comma (?)
     """
     output = ''
-    for element in input:
+    for element in input_list:
         output += str(element)
         output += ', '
     return output[:-2]
@@ -96,6 +128,23 @@ def finding_as_dict(finding : Finding) -> dict:
         "evidence": finding.evidence,
     }
 
+def style_severity(severity: str) -> str:
+    """
+    Based on the severity score apply according color
+    Args:
+        severity: The severity score of a detected gap (low,medium,high)
+
+    Returns:
+        A coloured string (click.style)
+    """
+    severity_lower = severity.lower()
+    if severity_lower == "low":
+        return click.style("Low", fg="green", bold=True)
+    elif severity_lower == "medium":
+        return click.style("Medium", fg="yellow", bold=True)
+    else:
+        return click.style("High", fg="red", bold=True)
+
 def render_finding(finding : Finding) -> str:
     """
         Renders a Single Finding object into a printable string.
@@ -106,30 +155,61 @@ def render_finding(finding : Finding) -> str:
         A printable string representing the finding.
     """
 
-    lines = [
-        f"Detected Security Gap: {finding.title}",
-        f"Rule ID: {finding.rule_id}",
-        f"Severity: {finding.severity}",
-        f"Description: {finding.description}",
-        "",
-    ]
+    lines = []
+
+    lines.append(
+        click.style("Detected Security Gap:", fg="white", bold=True)
+        + " "
+        + click.style(finding.title, bold=True)
+    )
+
+    lines.append(
+        click.style("Rule ID:", bold=True)
+        + " "
+        + f"{finding.rule_id}"
+    )
+
+    lines.append(
+        click.style("Severity:", bold=True)
+        + " "
+        + style_severity(finding.severity)
+    )
+
+    lines.append(
+        click.style("Description:", bold=True)
+        + f" {finding.description}"
+    )
+
+    lines.append("")
 
     if finding.evidence:
-        lines.append("Evidence:")
+        lines.append(click.style("Evidence:", fg="cyan", bold=True))
         lines.extend(render_evidence(finding.evidence))
         lines.append("")
 
     lines.append(
-        f"Missing Capabilities: {list_to_concatenated_string(finding.missing_capabilities)}"
+        click.style("Missing Capabilities:", fg="yellow", bold=True)
+        + " "
+        + list_to_concatenated_string(finding.missing_capabilities)
     )
+
     lines.append(
-        f"Correlated ATT&CK Techniques: {list_to_concatenated_string(finding.attack_techniques)}"
+        click.style("ATT&CK Techniques:", fg="magenta", bold=True)
+        + " "
+        + list_to_concatenated_string(finding.attack_techniques)
     )
+
     lines.append(
-        f"Suggested D3FEND Techniques: {list_to_concatenated_string(finding.d3fend_techniques)}"
+        click.style("D3FEND Techniques:", fg="green", bold=True)
+        + " "
+        + list_to_concatenated_string(finding.d3fend_techniques)
     )
+
     lines.append("")
-    lines.append(f"Recommendation: {finding.recommendation}")
+    lines.append(
+        click.style("Recommendation:", fg="cyan", bold=True)
+        + f" {finding.recommendation}"
+    )
 
     return "\n".join(lines)
 

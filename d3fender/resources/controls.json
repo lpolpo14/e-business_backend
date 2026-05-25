@@ -13,7 +13,8 @@
       "covers_capabilities": [
         "net.network_traffic_filtering"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Does your organization use firewalls?"
     },
     {
     "id": "access.identity_access_management",
@@ -32,7 +33,8 @@
       "cred.password_authentication",
     "proc.password_policy"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Does your organization possess an identity and access management system?"
   },
     {
     "id": "detect.security_monitoring",
@@ -47,7 +49,8 @@
     "covers_capabilities": [
     "detect.user_behavior_analysis"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you perform security monitoring and logging?"
     },
     {
     "id": "identity.session_credential_management",
@@ -63,7 +66,8 @@
     "cred.token_binding",
     "cred.credential_rotation"
     ],
-    "default": false
+    "default": false,
+      "interactive_text": "Do you possess a session and credential management system?"
   },
     {
       "id": "detect.antivirus",
@@ -80,7 +84,8 @@
         "file.file_content_analysis",
         "file.executable_allowlisting"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Do you use an antivirus?"
     },
     {
       "id": "net.vpn",
@@ -96,7 +101,8 @@
         "msg.message_encryption",
         "net.encrypted_tunnels"
       ],
-      "default": false
+      "default": false,
+      "interactive_text": "Is a virtual private network (VPN) employed within your organization?"
     }
   ]
 }
