@@ -5,12 +5,14 @@ from dataclasses import asdict, is_dataclass
 from typing import Any
 
 from d3fender.assessors.mainAssessor import runAssessment
-
+import io
+from fastapi import UploadFile, File
 
 app = FastAPI(
     title="D3FENDer Assessment API",
     description="Threat-driven defensive capability gap assessment API",
     version="0.1.0",
+    debug=True,
 )
 
 app.add_middleware(
@@ -181,3 +183,80 @@ def get_questionnaire():
         "security_controls": security_controls,
         "defensive_capabilities": defensive_capabilities
     }
+
+@app.post("/api/sbom/analyze")
+async def analyze_sbom_file(file: UploadFile = File(...)):
+    try:
+        if not file.filename or not file.filename.endswith(".json"):
+            raise HTTPException(
+                status_code=400,
+                detail="Only JSON SBOM files are supported."
+            )
+
+        content = await file.read()
+        text_content = content.decode("utf-8")
+
+        from d3fender.sbom_analysis.sbom_analyzer import (
+            analyze_sbom,
+            find_components_vulnerabilities
+        )
+
+        file_like = io.StringIO(text_content)
+
+        components = analyze_sbom(file_like)
+        vulnerabilities = find_components_vulnerabilities(components)
+
+        return {
+            "filename": file.filename,
+            "components_count": len(components),
+            "total_vulnerabilities_count": sum(len(vulns) for vulns in vulnerabilities.values()),
+            "vulnerable_components_count": len(vulnerabilities),
+            "components": [
+                serialize_component(component)
+                for component in components
+            ],
+            "vulnerabilities": {
+                bom_ref: [
+                    serialize_vulnerability(vuln)
+                    for vuln in vulns
+                ]
+                for bom_ref, vulns in vulnerabilities.items()
+            }
+        }
+
+    except HTTPException:
+        raise
+
+    except Exception as ex:
+        import traceback
+        traceback.print_exc()
+
+        raise HTTPException(
+            status_code=500,
+            detail=f"SBOM analysis failed: {type(ex).__name__}: {str(ex)}"
+        )
+
+from dataclasses import asdict, is_dataclass
+
+
+def serialize_component(component):
+    if is_dataclass(component):
+        return asdict(component)
+
+    if hasattr(component, "__dict__"):
+        return component.__dict__
+
+    return str(component)
+
+
+def serialize_vulnerability(vuln):
+    return {
+        "vulnerability_id": vuln.vulnerability_id,
+        "aliases": vuln.aliases,
+        "summary": vuln.summary,
+        "details": vuln.details,
+        "severity": vuln.severity,
+        "references": vuln.references,
+        "component": serialize_component(vuln.component)
+    }
+

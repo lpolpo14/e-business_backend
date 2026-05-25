@@ -58,11 +58,13 @@ def render_component(component: SBOMComponent) -> str:
 
 
 def component_as_dict(component):
-    """
-    Returns component as dict.
-    """
     if is_dataclass(component):
         return asdict(component)
+
+    if hasattr(component, "__dict__"):
+        return component.__dict__
+
+    return str(component)
 
 def render_vulnerabilities(vulnerabilities:dict[str,list[SBOMVulnerability]]) -> str:
     """
