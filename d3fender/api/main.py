@@ -8,6 +8,9 @@ from d3fender.assessors.mainAssessor import runAssessment
 import io
 from fastapi import UploadFile, File
 
+from d3fender.database.db_queries import getATTACKTechnique, getD3FENDTechnique
+from d3fender.rules.Finding import Finding
+
 app = FastAPI(
     title="D3FENDer Assessment API",
     description="Threat-driven defensive capability gap assessment API",
@@ -37,7 +40,68 @@ class AssessmentResponse(BaseModel):
     findings: list[Any]
 
 
+from typing import Any
+from dataclasses import asdict, is_dataclass
+from urllib.parse import quote
+
+
+
+def build_attack_url(attack_id: str) -> str:
+    """
+    T1078      -> https://attack.mitre.org/techniques/T1078/
+    T1078.004  -> https://attack.mitre.org/techniques/T1078/004/
+    """
+    return f"https://attack.mitre.org/techniques/{attack_id.replace('.', '/')}/"
+
+
+def build_d3fend_url(d3fend_internal_id: str) -> str:
+    """
+    d3f:Multi-factorAuthentication
+    -> https://d3fend.mitre.org/technique/d3f%3AMulti-factorAuthentication/
+    """
+    encoded_id = quote(d3fend_internal_id, safe="")
+    return f"https://d3fend.mitre.org/technique/{encoded_id}/"
+
+
+def enrich_attack_technique(attack_id: str) -> dict[str, Any]:
+    technique = getATTACKTechnique(attack_id)
+
+    return {
+        "id": attack_id,
+        "name": technique.name if technique else None,
+        "description": technique.description if technique else None,
+        "url": build_attack_url(attack_id)
+    }
+
+
+def enrich_d3fend_technique(d3fend_id: str) -> dict[str, Any]:
+    technique = getD3FENDTechnique(d3fend_id)
+
+    return {
+        "id": d3fend_id,
+        "name": technique.name if technique else None,
+        "definition": technique.definition if technique else None,
+        "description": technique.description if technique else None,
+        "url": build_d3fend_url(technique.id) if technique else None
+    }
+
+
 def serialize_finding(obj: Any) -> Any:
+    if isinstance(obj, Finding):
+        data = asdict(obj)
+
+        data["attack_techniques"] = [
+            enrich_attack_technique(technique_id)
+            for technique_id in obj.attack_techniques
+        ]
+
+        data["d3fend_techniques"] = [
+            enrich_d3fend_technique(technique_id)
+            for technique_id in obj.d3fend_techniques
+        ]
+
+        return data
+
     if is_dataclass(obj):
         return asdict(obj)
 
@@ -259,4 +323,3 @@ def serialize_vulnerability(vuln):
         "references": vuln.references,
         "component": serialize_component(vuln.component)
     }
-
