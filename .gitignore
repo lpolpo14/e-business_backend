@@ -30,8 +30,8 @@ logs/
 # Databases
 # ============================
 *.db
-*.sqlite
-*.sqlite3
+#*.sqlite
+#*.sqlite3
 
 # ============================
 # Test & Coverage
