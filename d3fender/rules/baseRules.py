@@ -62,7 +62,7 @@ StackOverflowRULE = Rule(
         "sw.aslr",
         "sw.stack_frame_canary_validation",
     ],
-    attack_techniques=["T1068", "TA0004"],
+    attack_techniques=["T1068", "T1190"],
     d3fend_techniques=["D3-SAOR", "D3-SFCV"],
     recommendation=(
         "Enable exploit mitigation controls such as ASLR and stack frame canary "
